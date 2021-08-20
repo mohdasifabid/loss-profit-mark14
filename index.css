@@ -1,3 +1,40 @@
 body {
-    background-color: blueviolet;
+  background-color: blueviolet;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  padding: 0.2rem;
+}
+
+.all-input {
+  display: block;
+  margin-left: 43.5%;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: blueviolet;
+  border-color: black;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.label-tag {
+  margin-left: 44%;
+  font-size: large;
+  color: white;
+}
+
+#tell-me {
+  margin-left: 47%;
+  padding: 0.7rem;
+  color: black;
+  font: bolder;
+}
+
+#output {
+  text-align: center;
+  color: white;
+  margin-top: 40px;
+  font-size: xx-large;
 }

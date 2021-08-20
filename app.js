@@ -8,25 +8,33 @@ const tellMe = document.querySelector("#tell-me")
 
 const output = document.querySelector("#output")
 
-
-tellMe.addEventListener("click", function () {
-
-    const profit = currentPrice.value - purchasePrice.value;
-
-    const loss = purchasePrice.value - currentPrice.value;
-
-    const profitInPercentage = (profit % purchasePrice) * 100;
-
-    console.log(profitInPercentage)
-
-    const lossInPercentage = (loss % purchasePrice) * 100;
+const allInput = document.querySelector("#all-input")
 
 
-    if (purchasePrice > currentPrice) {
-        output.textContent = "You are in profit of " + profit + "in absolute term and in percentage it is " + profitInPercentage
+
+function calculateProfitAndLoss(){
+
+    const pp = purchasePrice.value;
+    const qty = stockQuantity.value;
+    const mp = currentPrice.value;
+
+    if(mp>pp){
+        const profit = (mp - pp)*qty;
+        const profitInPercentage = (profit/pp)*100;
+
+        output.textContent = "Congrats, you have gained profit of " + profit + " and in percentage it is " + profitInPercentage + "%";
+    } else if (pp>mp){
+        const loss = (pp - mp)*qty;
+        const lossInPercentage = (loss/pp)*100;
+        console.log(lossInPercentage)
+
+        output.textContent = "Sorry, but you have suffered a loss of rupees" + loss  + " and in percentage thos loss is " + lossInPercentage + "%";
+    } else {
+        output.textContent = "Please fill out all Fields"
     }
-    if (currentPrice > purchasePrice) {
-        output.textContent = "You are in profit of " + loss + "in absolute term and in percentage it is " + lossInPercentage
-    }
+}
 
-})
+
+tellMe.addEventListener("click", calculateProfitAndLoss);
+
+
